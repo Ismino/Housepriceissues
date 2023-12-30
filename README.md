@@ -81,28 +81,72 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 |SalePrice|Sale Price|34900 - 755000|
 
 
-
-
-
 ## Business Requirements
-As a good friend, you are requested by your friend, who has received an inheritance from a deceased great-grandfather located in Ames, Iowa, to  help in maximising the sales price for the inherited properties.
 
-Although your friend has an excellent understanding of property prices in her own state and residential area, she fears that basing her estimates for property worth on her current knowledge might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. She found a public dataset with house prices for Ames, Iowa, and will provide you with that.
+As a trusted friend, I've been approached by a close friend who recently inherited properties from her great-grandfather in Ames, Iowa. She has tasked me with maximizing the sales value of these properties.
 
-* 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
-* 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
+My friend is quite knowledgeable about property values in her own state and area, but she's concerned that this knowledge might not accurately apply to Ames. Aware of the regional differences in what makes a property desirable, she wisely decided to use a more data-driven approach. She's provided me with a public dataset containing property prices in Ames, which I'll use for this analysis.
+
+There are two main objectives for this project:
+
+* BR1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
+* BR2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
 ## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them).
+* Property Size Impact: My theory posits that the bigger a property is, the more it should fetch in the market. To test this, I'll analyze the relationship between house size metrics and their sale prices.
 
+* Importance of Quality and Condition: I believe that the quality and condition of a house greatly affect its market value. Higher quality ratings, like those for the kitchen or the overall construction, should correlate with higher prices. I'll verify this by examining how these quality indicators relate to the sale price.
+
+* Age and Renovation Influence: My assumption is that a property's age and any recent renovations play a crucial role in determining its value. I intend to investigate this by looking at the construction year, any recent remodels, and how these factors influence the property’s market value.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+
+* For Business Requirement 1 (BR1): Focusing on Data Visualization and Correlation Analysis
+   
+   * I plan to delve into the sale prices in our dataset by creating histograms to visualize their distribution. This will provide a clearer understanding of the price range and spread.
+
+   *  I'll conduct a detailed correlation analysis between various house attributes and their sale prices. This involves computing both Pearson and Spearman correlations to grasp both linear and rank correlations.
+
+   * To further clarify these relationships, I'll graphically represent the key variables in relation to the sale prices of the houses, demonstrating how they are interconnected.
+
+   * A dedicated notebook for correlation study will cover all aspects of this business requirement.
+
+* For Business Requirement 2 (BR2): Implementing Regression Analysis
+   
+   * Given that our goal is to predict a continuous variable - the sale price, regression analysis will be my primary tool. Should the regression model underperform, I may consider reframing this as a classification challenge.
+
+   * Understanding that not all house attributes equally impact sale price, my objective is to pinpoint those factors that have the most significant influence. Techniques like Principal Component Analysis (PCA) might be employed to identify these key variables.
+
+   * A specialized notebook for modeling and evaluation, titled "Predict House Prices," will be used to fulfill this business requirement.
 
 
 ## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+
+  ### Predict House Sales Price 
+   
+   #### Regression Model
+
+    * To fulfill our second business requirement (BR2), our plan is to develop a Machine Learning (ML) model.
+
+    * This model's purpose is to assist our client in estimating the sale prices of four specific inherited properties, as well as for any other comparable properties.
+
+    * We've chosen to employ a regression model for this task, as our primary variable of interest – the sale price – is a numeric value
+
+    * This task will be handled as a supervised learning problem focusing on a single dimension.
+    
+         * Our objective is to provide the client with valuable insights into the characteristics of houses that can potentially enhance their sale value. We've set specific performance targets for the model: achieving a minimum R2 score of 0.75 in both training and testing phases.
+
+         * A prediction accuracy drop below 75% for any individual property will be considered a failure of the model. 
+
+    * The model's output will be the projected sale price in U.S. dollars, based on the relevant house attributes.
+
+    * The client has provided data on four inherited properties, and our model will predict both individual and cumulative sale prices for these.
+
+        * Additionally, the model will support real-time predictions for other properties, allowing users to input key features for immediate price estimates. This dual functionality caters to the client’s current and future property valuation needs.
+
+    * To avoid the potential inaccuracies of heuristic valuations, we are adopting a data-driven approach. The client’s local real estate knowledge may not accurately reflect the property values in Ames, Iowa, hence the reliance on a more analytical approach.
+    * Our model, named 'HousePriceIssue' (House Price Issues), will utilize a public dataset from Ames, Iowa. This dataset comprises around 1,500 property listings with 22 features. During the data preparation phase, we'll exclude variables with significant missing data. Our focus will be on the 'SalePrice' as the target variable, with all other relevant features included in the analysis.    
 
 
 ## Dashboard Design
