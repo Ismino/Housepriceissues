@@ -4,7 +4,7 @@ def page_summary_body():
     """
     Showcases an overview of the project with key insights and dataset details.
     """
-    st.title("Heritage Housing Insights: A Deep Dive into Ames' Real Estate")
+    st.title("Housing Insights")
 
     st.markdown("""
         #### Key Terminology
