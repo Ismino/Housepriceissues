@@ -4,13 +4,13 @@ import numpy as np
 import joblib
 
 # code taken from https://github.com/Amareteklay/heritage-housing-issues/tree/main
-@st.cache_data()
+@st.cache()
 def load_housing_data():
     df = pd.read_csv("outputs/datasets/collection/HousePrices.csv")
     return df
 
 
-@st.cache_data()
+@st.cache()
 def load_heritage_data():
     df_h = pd.read_csv("inputs/datasets/raw/house-price-20211124T154130Z-001/house-price/inherited_houses.csv")
     return df_h
