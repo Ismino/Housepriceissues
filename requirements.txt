@@ -18,3 +18,6 @@ MarkupSafe==2.0.1
 protobuf==3.20
 ipywidgets==8.0.2
 altair<5
+pip>=22.0.0
+setuptools>=60.0.0
+wheel>=0.37.0git
